@@ -42,4 +42,4 @@ mongoose.model('Comment', CommentSchema);
 mongoose.model('Post', PostSchema);
 mongoose.model('User', UserSchema);
 
-mongoose.connect('mongodb://localhost/final');
+mongoose.connect('mongodb://localhost/27017');

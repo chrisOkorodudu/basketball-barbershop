@@ -23,25 +23,25 @@ app.use(session({
 
 
 app.get('/', (req, res) => {
-	res.render('');
+	res.render('layout');
 });
 
-app.get('/register', (req, res) => {
+// app.get('/register', (req, res) => {
 
-});
-
-
-app.get('/post/:slug', (req, res) => {
-
-});
-
-app.get('/user/:username', (req, res) => {
-
-});
+// });
 
 
-app.post('/login', (req, res) => {
+// app.get('/post/:slug', (req, res) => {
 
-});
+// });
+
+// app.get('/user/:username', (req, res) => {
+
+// });
+
+
+// app.post('/login', (req, res) => {
+
+// });
 
 app.listen(3000);
