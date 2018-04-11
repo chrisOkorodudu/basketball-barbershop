@@ -20,7 +20,7 @@ const PostSchema = new mongoose.Schema({
 	title: {type: String, required: true},
 	url: {type: String}, //optional url to outside website 
 	status: {type: String, required: true},
-	comments: [CommentSchema]
+	comments: [CommentSchema],
 	createAt: String, //timestamp
 });
 

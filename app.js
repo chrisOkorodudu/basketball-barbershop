@@ -23,7 +23,7 @@ app.use(session({
 
 
 app.get('/', (req, res) => {
-
+	res.render('');
 });
 
 app.get('/register', (req, res) => {
@@ -39,15 +39,6 @@ app.get('/user/:username', (req, res) => {
 
 });
 
-
-app.post('/', (req, res) => {
-
-});
-        
-
-app.get('/login', (req, res) => {
-	res.render('login');
-});
 
 app.post('/login', (req, res) => {
 
