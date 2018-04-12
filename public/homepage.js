@@ -6,7 +6,7 @@ console.log('running');
 function init() {
 	console.log('init');
 
-
+	constole.log('minor change made');
 	//login form will be dynamically programmed to show up if the user is not logged in already 
 	const login = document.createElement('div');
 	login.id = 'login';
