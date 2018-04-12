@@ -1,6 +1,6 @@
 const express = require('express');
-require('./db');
 const mongoose = require('mongoose');
+require('./db');
 const User = mongoose.model('User');
 const Post = mongoose.model('Post');
 const Comment = mongoose.model('Comment');
@@ -23,7 +23,7 @@ app.use(session({
 
 
 app.get('/', (req, res) => {
-	res.render('layout');
+	res.render('homepage');
 });
 
 // app.get('/register', (req, res) => {
