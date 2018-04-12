@@ -1,9 +1,9 @@
 const express = require('express');
-// const mongoose = require('mongoose');
-// require('./db');
-// const User = mongoose.model('User');
-// const Post = mongoose.model('Post');
-// const Comment = mongoose.model('Comment');
+const mongoose = require('mongoose');
+require('./db');
+const User = mongoose.model('User');
+const Post = mongoose.model('Post');
+const Comment = mongoose.model('Comment');
 const session = require('express-session');
 const path = require('path');
 const bodyParser = require('body-parser');
