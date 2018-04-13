@@ -24,7 +24,8 @@ function register(email, username, password, success, error) {
 						const user = new User({
 							username: username, 
 							email: email, 
-							password: hash
+							password: hash, 
+							posts: [ username ]
 						}).save((err, user) => {
 							if (err) {
 								console.log(err);
