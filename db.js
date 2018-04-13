@@ -42,6 +42,6 @@ mongoose.model('Comment', CommentSchema);
 mongoose.model('Post', PostSchema);
 mongoose.model('User', UserSchema);
 
-mongoose.connect('mongodb://<chroko14>:<qwqw1212>@ds243049.mlab.com:43049/basketball');
+mongoose.connect('mongodb://chroko14:qwqw1212@ds243049.mlab.com:43049/basketball');
 
 

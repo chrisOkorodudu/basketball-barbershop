@@ -44,9 +44,9 @@ function init() {
 	submit.setAttribute('name', 'login');
 	submit.setAttribute('value', 'login');
 	loginForm.appendChild(submit);
-	submit.addEventListener('focus', () => {
-		login.style.display = 'none';
-	});
+	// submit.addEventListener('focus', () => {
+	// 	login.style.display = 'none';
+	// });
 
 	login.appendChild(loginForm);
 	
