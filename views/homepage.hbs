@@ -1,2 +1,39 @@
 
+{{#if error}}
+	<div id="login_err">{{ error }}</div>
+{{/if}}
+
+
+<div id='addPost'>
+
+	<form id='postForm' method="POST" action="">
+		<div>
+			<label for="email">Status:</label> 
+			<input type="status" name="status" value="">
+		</div>
+		<div>
+			<label for="url">link:</label>
+			<input type="text" name="url" value="">
+		</div>
+		<div>
+			<label for="description">Description:</label>
+			<input type="description" name="description" value="" style="height:100px">
+		</div>
+		<div><input type="submit" value="Post"></div>
+	</form>
+
+</div>
+
+
+<div id='postDiv'> 
+	<ol id='posts'>
+	{{#if posts}}
+	{{#each posts}}
+		<li>{{username}}:	{{status}}<br>{{description}}</li>
+	{{/each}}
+	{{/if}}
+	</ol>
+</div>
+
+
 

@@ -10,6 +10,13 @@
 	<div id='content'>
 		<h1><a href='/'>The Basketball Barbershop</a></h1>
 
+		{{#if user}}
+			<h3>{{user.username}}</h3>
+			<button id='postButton'>Post Button</button>
+		{{/if}}
+
+
+
 	{{{body}}}
 
 	</div>

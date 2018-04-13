@@ -16,10 +16,10 @@ const CommentSchema = new mongoose.Schema({
 
 
 const PostSchema = new mongoose.Schema({
-	userID: {type: String, required: true}, //must be logged in to post or comment
-	title: {type: String, required: true},
-	url: {type: String}, //optional url to outside website 
+	username: {type: String, required: true}, //must be logged in to post or comment
 	status: {type: String, required: true},
+	url: {type: String}, //optional url to outside website 
+	description: {type: String, required: true},
 	comments: [CommentSchema],
 	createAt: String, //timestamp
 });
@@ -42,4 +42,4 @@ mongoose.model('Comment', CommentSchema);
 mongoose.model('Post', PostSchema);
 mongoose.model('User', UserSchema);
 
-mongoose.connect('mongodb://localhost/27017/basketball');
+mongoose.connect('mongodb://localhost/final');

@@ -48,20 +48,22 @@ function login(username, password, success, error) {
 				if (res) {
 					success(user);
 				} else {
-					error(error: 'PASSWORD INCORRECT');
+					error({error: 'PASSWORD INCORRECT'});
 				}
 			});
 		} else {
-			error(error: 'USER NOT FOUND');
+			console.log('USER NOT FOUND');
+			error({error: 'USER NOT FOUND'});
 		}
+	});
 }
 
 
-function startAuthenticatedSession(req, user, cb) {
+function startAuthenticatedSession(user, req, cb) {
 	req.session.regenerate((err) => {
 		if (!err) {
 			req.session.user = {
-				username: user.username;
+				username: user.username
 			}
 			cb(err);
 		}

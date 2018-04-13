@@ -1,7 +1,57 @@
 
 
+body {
+
+}
+
 #login {
 	position: fixed;
 	top: 30px;
 	right: 30px;
+}
+
+#login_err {
+	position: fixed;
+	top: 48px;
+	right: 50px;
+}
+
+#postButton {
+	text-align: center;
+}
+
+#addPost {
+	position: fixed;
+	display: none;
+	width: 500px;
+	height: 500px;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: lightblue;
+	border: medium solid black;
+	z-index: 2;
+	text-align: center;
+}
+
+.input {
+	color: lightgrey;
+}
+
+#overlay {
+    position: fixed;
+    display: none; 
+    width: 500px; 
+    height: 500px; 
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.8); 
+    z-index: 100; 
+    text-align: center;
+    color: red;
 }
