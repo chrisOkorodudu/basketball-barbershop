@@ -33,12 +33,7 @@ app.get('/', (req, res) => {
 
 	Post.find((err, posts) => {
 		if (!err && posts) {
-			// if (error) {
-				// console.log(error);
 			res.render('homepage', {posts: posts});	
-			// } else {
-				// res.render('homepage', {posts: posts});
-			// }
 		}
 	});
 });
@@ -49,7 +44,6 @@ app.post('/', (req, res) => {
 		auth.login(req.body.username, req.body.password, (user) => {
 			auth.startAuthenticatedSession(user, req, (err) => {
 				if (!err) {
-					// console.log(req.body);
 					req.session.username = user.username;
 					res.redirect('/');
 				}
@@ -60,10 +54,8 @@ app.post('/', (req, res) => {
 					res.render('homepage', {error: err.error, posts: posts});
 				} 
 			});
-			
 		});
 	} else {
-		console.log('here');
 		const post = new Post({
 			username: req.session.user.username,
 			status: req.body.status,

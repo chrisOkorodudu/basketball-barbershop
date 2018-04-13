@@ -12,7 +12,7 @@ ol {
 	list-style-type: square;
 }
 
-#login {
+#loginForm {
 	position: fixed;
 	top: 30px;
 	right: 30px;
