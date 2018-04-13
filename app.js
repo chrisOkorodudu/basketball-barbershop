@@ -27,13 +27,18 @@ app.use((req, res, next) => {
 	next();
 });
 
-console.log('app.js');
+// let error = {};
 
 app.get('/', (req, res) => {
+
 	Post.find((err, posts) => {
 		if (!err && posts) {
-			console.log(posts);
-			res.render('homepage', {posts: posts});
+			// if (error) {
+				// console.log(error);
+			res.render('homepage', {posts: posts});	
+			// } else {
+				// res.render('homepage', {posts: posts});
+			// }
 		}
 	});
 });
@@ -44,13 +49,18 @@ app.post('/', (req, res) => {
 		auth.login(req.body.username, req.body.password, (user) => {
 			auth.startAuthenticatedSession(user, req, (err) => {
 				if (!err) {
-					console.log(req.body);
+					// console.log(req.body);
 					req.session.username = user.username;
 					res.redirect('/');
 				}
 			})
 		}, (err) => {
-			res.render('homepage', {error: err.error});
+			Post.find((error, posts) => {
+				if (!error && posts) {
+					res.render('homepage', {error: err.error, posts: posts});
+				} 
+			});
+			
 		});
 	} else {
 		console.log('here');
