@@ -25,7 +25,6 @@ function register(email, username, password, success, error) {
 							username: username, 
 							email: email, 
 							password: hash, 
-							posts: [ username ]
 						}).save((err, user) => {
 							if (err) {
 								console.log(err);

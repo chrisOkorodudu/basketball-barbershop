@@ -27,13 +27,11 @@ const PostSchema = new mongoose.Schema({
 const UserSchema = new mongoose.Schema ({
     username: {type: String, unique: true, required: true},
     email: {type: String, unique: true, required: true}, 
-    password: {type: String, unique: true, required: true},
-    // posts: [PostSchema],
-    // comments: [CommentSchema]
+    password: {type: String, required: true},
 });
 
 
-// PostSchema.plugin(URLSlugs('username'));
+PostSchema.plugin(URLSlugs('username status'));
 
 
 // "registring" your schema
@@ -42,6 +40,6 @@ mongoose.model('Comment', CommentSchema);
 mongoose.model('Post', PostSchema);
 mongoose.model('User', UserSchema);
 
-mongoose.connect('mongodb://chroko14:qwqw1212@ds243049.mlab.com:43049/basketball');
+mongoose.connect('mongodb://chroko14:qwqw1212@ds139342.mlab.com:39342/final');
 
 
