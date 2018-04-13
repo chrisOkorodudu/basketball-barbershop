@@ -83,7 +83,7 @@ app.post('/register', (req, res) => {
 			}
 		});
 	}), (err) => {
-		res.render('register', {message: err.error});
+		res.render('register', {error: err.error});
 	}
 });
 
