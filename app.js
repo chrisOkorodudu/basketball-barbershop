@@ -82,9 +82,9 @@ app.post('/register', (req, res) => {
 				res.redirect('/');
 			}
 		});
-	}), (err) => {
-		res.render('register', {error: err.error});
-	}
+	}, (err) => {
+		res.render('register', {message: err.error});
+	});
 });
 
 

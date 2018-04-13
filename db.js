@@ -33,7 +33,7 @@ const UserSchema = new mongoose.Schema ({
 });
 
 
-PostSchema.plugin(URLSlugs('username title'));
+// PostSchema.plugin(URLSlugs('username'));
 
 
 // "registring" your schema

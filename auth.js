@@ -1,6 +1,5 @@
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
-
 const User = mongoose.model('User');
 
 
@@ -28,6 +27,7 @@ function register(email, username, password, success, error) {
 							password: hash
 						}).save((err, user) => {
 							if (err) {
+								console.log(err);
 								error({error: 'DOCUMENT SAVE ERROR'});
 							} else {
 								success(user);
