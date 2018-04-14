@@ -15,6 +15,9 @@ function init() {
 		inputs[i].addEventListener('focus', () => {
 			inputs[i].value = '';
 			inputs[i].style.color = 'black';
+			if (i==1) {
+				inputs[i].type = 'password';
+			}
 		});
 	}
 
