@@ -1,37 +1,58 @@
 
 {{#if error}}
-	<div id="login_err">{{ error }}</div>
+	<div id="login_err" class='error'>{{ error }}</div>
 {{/if}}
 
 {{#if user}}
 {{else}}
-	<form id='loginForm' method="Post" action=''>
+	<form id='loginForm' method="Post" action='/login'>
 		<input class='input' name='username' value='username'>
 		<input class='input' name='password' value='password'>
 		<input name='login' type='submit' value='login'>
 	</form>
 {{/if}}
 
+<!-- 
+<div id='addPost'>
+	<form id="post" data-parsley-validate="" method='post' action=''>
+		<label for="title">Title:</label>
+		<input type="text" class="form-control" name="fullname" required="">
+
+		<label for="url">Link:</label>
+		<input type="url" class="form-control" name="url" data-parsley-trigger="change">
+
+		 <p>
+			<label for="message">Message (20 chars min, 100 max) :</label>
+			<textarea id="message" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 character message.." data-parsley-validation-threshold="10"></textarea>
+		 </p>
+
+
+	</form>
+</div> -->
+
 
 <div id='addPost'>
 
 	<form id='postForm' method="POST" action="">
-		<div>
-			<label for="email">Status:</label> 
-			<input type="status" name="status" value="">
+		<div class='postInput'>
+			<label for="title">Title:</label> 
+			<input type="status" name="status" required="" value="">
 		</div>
-		<div>
+		<div class='postInput'>
 			<label for="url">link:</label>
-			<input type="text" name="url" value="">
+			<input type="url" name="url" value="">
 		</div>
-		<div>
+		<div class='description'>
 			<label for="description">Description:</label>
-			<input type="description" name="description" value="" style="height:100px">
+			<textarea id='message' name='message'></textarea>
+			<!-- <input type="description" name="description" value="" style="height:100px;"> -->
 		</div>
-		<div><input type="submit" value="Post"></div>
+		<div><input id='submit' type="submit" value="Post"></div>
 	</form>
 
 </div>
+
+
 
 
 <div id='postDiv'> 

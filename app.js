@@ -8,8 +8,49 @@ const Comment = mongoose.model('Comment');
 const session = require('express-session');
 const path = require('path');
 const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
+const flash = require('connect-flash');
+
+const passport = require('passport'),
+	LocalStrategy = require('passport-local').Strategy;
 
 const app = express();
+
+
+passport.use(new LocalStrategy(
+	function(username, password, done) {
+		console.log('here');
+
+		User.findOne({username: username}, (err, user) => {
+			if (err) { return done(err); }
+
+			if (!user) {
+				return done(null, false, {message: 'USERNAME NOT FOUND'});
+			}
+
+			bcrypt.compare(password, user.password, (err, res) => {
+				if (err) {
+					return done(err);
+				} else if (!res) {
+					return done(null, false, {message: 'USERNAME/PASSWORD NOT FOUND'});
+				}
+				// req.session.username = user.username;
+				return done(null, user);
+			});
+
+		});	
+	}
+));
+
+passport.serializeUser((user, done) => {
+	done(null, user.username);
+});
+
+passport.deserializeUser((username, done) => {
+	User.findOne({username: username}, (err, user) => {
+		done(err, user);
+	});
+});
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
@@ -21,71 +62,58 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
 }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 app.use((req, res, next) => {
-	res.locals.user = req.session.user;
+	res.locals.user = req.user;
 	next();
 });
 
-// let error = {};
 
 app.get('/', (req, res) => {
-
 	Post.find((err, posts) => {
 		if (!err && posts) {
-			res.render('homepage', {posts: posts});	
+			res.render('homepage', {error: req.flash('error'), posts: posts});	
 		}
 	});
 });
 
 app.post('/', (req, res) => {
-
-	if (req.body.login) {
-		auth.login(req.body.username, req.body.password, (user) => {
-			auth.startAuthenticatedSession(user, req, (err) => {
-				if (!err) {
-					req.session.username = user.username;
-					res.redirect('/');
-				}
-			})
-		}, (err) => {
-			Post.find((error, posts) => {
-				if (!error && posts) {
-					res.render('homepage', {error: err.error, posts: posts});
-				} 
-			});
-		});
-	} else {
-		const post = new Post({
-			username: req.session.user.username,
-			status: req.body.status,
-			url: req.body.link,
-			description: req.body.description
-		}).save((err, user) => {
-			if (!err && user) {
-				// console.log(user);
-				res.redirect('/');
-			} else {
-				console.log(err);
-			}
-		});
-	}
+	const post = new Post({
+		username: req.session.user.username,
+		status: req.body.status,
+		url: req.body.link,
+		description: req.body.description
+	}).save((err, user) => {
+		if (!err && user) {
+			// console.log(user);
+			res.redirect('/');
+		} else {
+			console.log(err);
+		}
+	});
 });
+
+app.post('/login',
+	passport.authenticate('local', {successRedirect: '/', 
+									failureRedirect: '/', 
+									failureFlash: true})
+);
 
 app.get('/register', (req, res) => {
 	res.render('register');
 });
 
 app.post('/register', (req, res) => {
-	auth.register(req.body.email, req.body.username, req.body.password, (user) => {
-		auth.startAuthenticatedSession(user, req, (err) => {
-			if (!err) {
-				console.log(user.username);
-				res.redirect('/');
-			}
-		});
-	}, (err) => {
-		res.render('register', {message: err.error});
+	const authenticate = passport.authenticate('local', {successRedirect: '/', 
+														failureRedirect: '/register',
+														failureFlash: true}
+	);
+
+	auth.register(req.body.email, req.body.username, req.body.password, authenticate.bind(null, req, res), (err) => {
+		res.render('register', {message: err.message});
 	});
 });
 

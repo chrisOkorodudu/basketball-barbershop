@@ -12,17 +12,47 @@ ol {
 	list-style-type: square;
 }
 
+input {
+	text-align: left;
+	vertical-align: text-top;
+}
+
+textarea {
+	height: 50px;
+}
+
+.postInput {
+	float: left;
+	padding: 10px;
+}
+
+
+.description {
+	float: left;
+	clear: left;
+	padding: 10px;
+}
+
+.error {
+	color: red;
+}
+
 #loginForm {
 	position: fixed;
 	top: 30px;
 	right: 30px;
 }
 
+#submit {
+	clear: left;
+	display: block;
+	text-align: center;
+}
+
 #login_err {
 	position: fixed;
 	top: 48px;
 	right: 50px;
-	color: red;
 }
 
 #postButton {
@@ -32,7 +62,7 @@ ol {
 #addPost {
 	position: fixed;
 	display: none;
-	width: 500px;
+	width: 700px;
 	height: 500px;
 	margin: auto;
 	top: 0;
