@@ -82,12 +82,12 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
 	const post = new Post({
-		username: req.session.user.username,
+		username: req.user.username,
 		status: req.body.status,
 		url: req.body.link,
 		description: req.body.description
-	}).save((err, user) => {
-		if (!err && user) {
+	}).save((err, post) => {
+		if (!err && post) {
 			// console.log(user);
 			res.redirect('/');
 		} else {
