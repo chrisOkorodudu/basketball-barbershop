@@ -1,0 +1,42 @@
+
+
+<h2 id="post">{{post.username}}:	{{post.status}}<br>{{post.description}}</h2>
+
+<!-- {{#each post}}
+  <h2 id='post'>{{username}}: {{status}}<br>{{description}}</h2>
+{{/each}} -->
+
+<!-- <h2>{{post}}</h2> -->
+
+<ol>
+{{#if comments}}
+{{#each comments}}
+  <li>{{userID}}:	{{comment}}</li>
+{{/each}}
+{{/if}}
+</ol>
+
+
+
+{{#if user}}
+  <br><br>
+  <div id="addComment">
+
+  	<form id="commentForm" method="POST" action="">
+  		<!-- <div class="commentInput">
+  			<label for="title">Title:</label>
+  			<input class="postIn" type="status" name="status" value="">
+  		</div>
+  		<div class="commentInput">
+  			<label for="url">link:</label>
+  			<input class="postIn" type="url" name="url" value="">
+  		</div> -->
+  		<div class="commentInput">
+  			<label for="comment">Comment:</label>
+  			<textarea form="commentForm" id="comment" name="comment"></textarea>
+  		</div>
+  		<div><input id="submit" type="submit" value="Comment"></div>
+  	</form>
+
+  </div>
+{{/if}}

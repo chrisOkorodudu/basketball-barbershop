@@ -2,19 +2,19 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>Basketball Barbershop</title>
 	<link rel="stylesheet" href="/css/base.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<script src='homepage.js'></script>
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<script src="/homepage.js"></script>
 </head>
 <body>
-	<div id='content'>
-		<h1><a href='/'>The Basketball Barbershop</a></h1>
+	<div id="content">
+		<h1><a href="/">The Basketball Barbershop</a></h1>
 
 		{{#if user}}
 			<h3>{{user.username}}</h3>
-			<button id='postButton'>Post Button</button>
 		{{else}}
-			<a href='/register'>Register here!!</a>
+			<a href="/register">Register here!!</a>
 		{{/if}}
 
 

@@ -19,12 +19,17 @@ input {
 
 textarea {
 	height: 50px;
+	width: 100%;
 }
 
 .postInput {
-	float: left;
 	padding: 10px;
 }
+
+.postIn {
+	width: 100%;
+}
+
 
 
 .description {
@@ -37,6 +42,28 @@ textarea {
 	color: red;
 }
 
+.commentInput {
+	float: left;
+	padding: 15px;
+}
+
+#post {
+	font-family: 'Lato', sans-serif;
+	color: rgb(50, 50, 50);
+}
+
+#comment {
+	height: 35px;
+}
+
+#comments {
+
+}
+
+li {
+	font-family: 'Lato', sans-serif;
+}
+
 #loginForm {
 	position: fixed;
 	top: 30px;
@@ -47,6 +74,7 @@ textarea {
 	clear: left;
 	display: block;
 	text-align: center;
+	margin: auto;
 }
 
 #login_err {
@@ -75,22 +103,31 @@ textarea {
 	text-align: center;
 }
 
-.input {
-	color: lightgrey;
+
+#postform {
+	/* display: block; */
+	/* margin: auto; */
+	width: 100%;
 }
+
+.input {
+	background-color: #3CBC8D;
+	color: black;
+}
+
 
 #overlay {
     position: fixed;
-    display: none; 
-    width: 500px; 
-    height: 500px; 
+    display: none;
+    width: 500px;
+    height: 500px;
     margin: auto;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(255,255,255,0.8); 
-    z-index: 100; 
+    background-color: rgba(255,255,255,0.8);
+    z-index: 100;
     text-align: center;
     color: red;
 }
