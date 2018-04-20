@@ -5,16 +5,34 @@
 	<title>Basketball Barbershop</title>
 	<link rel="stylesheet" href="/css/base.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
 	<script src="/homepage.js"></script>
 </head>
 <body>
+	<!-- <div id="navigation">
+
+		<ul id="navbar">
+			<li class="navlink"><a href="/">HOME</a></li>
+		</ul>
+	</div> -->
+	<nav>
+
+		<h1>The Basketball Barbershop</h1>
+		<!-- <hr> -->
+		<ul>
+			<li class="navlink"><a href="/">HOME</a></li>
+			{{#if user}}
+			<li class="navlink"><a href="#">MY POSTS</a></li>
+			{{else}}
+			<li class="navlink"><a href="/register">Register</a></li>
+			{{/if}}
+		</ul>
+	</nav>
+
 	<div id="content">
-		<h1><a href="/">The Basketball Barbershop</a></h1>
 
 		{{#if user}}
-			<h3>{{user.username}}</h3>
-		{{else}}
-			<a href="/register">Register here!!</a>
+			<h3 id="currentuser">{{user.username}}</h3>
 		{{/if}}
 
 
