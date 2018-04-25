@@ -1,0 +1,15 @@
+
+{{#if posts}}
+<div id="myPosts">
+	<ol id="posts">
+	{{#each posts}}
+		<li>{{username}}:	{{status}}<br>{{description}}</li>
+		<a class="comments" id="{{slug}}" href="/post/{{slug}}">View Comments</a>
+		<br>
+		<br>
+	{{/each}}
+	</ol>
+</div>
+{{else}}
+<div>Sorry, you don't have any posts yet!</div>
+{{/if}}

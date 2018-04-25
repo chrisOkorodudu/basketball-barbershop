@@ -9,30 +9,26 @@
 	<script src="/homepage.js"></script>
 </head>
 <body>
-	<!-- <div id="navigation">
-
-		<ul id="navbar">
-			<li class="navlink"><a href="/">HOME</a></li>
-		</ul>
-	</div> -->
 	<nav>
 
 		<h1>The Basketball Barbershop</h1>
-		<!-- <hr> -->
+
 		<ul>
 			<li class="navlink"><a href="/">HOME</a></li>
 			{{#if user}}
-			<li class="navlink"><a href="#">MY POSTS</a></li>
+			<li class="navlink"><a id="myposts" href="/user/{{user.username}}">MY POSTS</a></li>
 			{{else}}
-			<li class="navlink"><a href="/register">Register</a></li>
+			<li class="navlink"><a id="registerLink" href="/register">Register</a></li>
 			{{/if}}
 		</ul>
+
 	</nav>
 
 	<div id="content">
 
 		{{#if user}}
 			<h3 id="currentuser">{{user.username}}</h3>
+			<button id="logout"><a href="/logout">logout</a></button>
 		{{/if}}
 
 

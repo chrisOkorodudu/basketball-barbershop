@@ -97,6 +97,7 @@ textarea {
 	padding: 15px;
 }
 
+
 #currentuser {
 	color: darkblue;
 	text-align: center;
@@ -105,6 +106,13 @@ textarea {
 	position: absolute;
 	top: 0px;
 	right: 20px
+}
+
+#logout {
+	text-align: center;
+	position: absolute;
+	top: 70px;
+	right: 10px;
 }
 
 #post {
@@ -131,6 +139,12 @@ textarea {
 	display: block;
 	text-align: center;
 	margin: auto;
+}
+
+#submitComment {
+	clear: left;
+	text-align: left;
+	display: block;
 }
 
 #login_err {

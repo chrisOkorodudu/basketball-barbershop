@@ -108,6 +108,12 @@ app.post('/login',
 									failureFlash: true})
 );
 
+app.get('/logout', (req, res) => {
+	req.logout();
+	res.redirect('/');
+});
+
+
 app.get('/register', (req, res) => {
 	res.render('register');
 });
@@ -120,6 +126,15 @@ app.post('/register', (req, res) => {
 
 	auth.register(req.body.email, req.body.username, req.body.password, authenticate.bind(null, req, res), (err) => {
 		res.render('register', {message: err.message});
+	});
+});
+
+app.get('/user/:username', (req, res) => {
+	console.log(req.user.username);
+	Post.find({username: req.user.username}, (err, posts) => {
+		if (!err && posts) {
+			res.render('myposts', {posts: posts});
+		}
 	});
 });
 

@@ -1,21 +1,3 @@
-// require('./db')
-
-
-
-
-function addComment() {
-
-}
-
-// function getComments(evt) {
-// 	evt.preventDefault();
-//
-// 	const req = new XMLHttpRequest();
-// 	req.open('GET', '/post/'+link.id, true);
-// 	req.addEventListener('load', )
-//
-// }
-
 
 
 function init() {
@@ -28,11 +10,6 @@ function init() {
 			addPostOverlay.style.display = 'block';
 		});
 	}
-
-	// const commentLinks = document.getElementsByClassName('.comments');
-	// for (const link of commentLinks) {
-	// 	link.addEventListener('click', getCommment(evt, link.id));
-	// }
 }
 
 
