@@ -1,15 +1,16 @@
 
 {{#if posts}}
-<div id="myPosts">
-	<ol id="posts">
-	{{#each posts}}
-		<li>{{username}}:	{{status}}<br>{{description}}</li>
+{{#each posts}}
+	<div class="post">
+		{{#if url}}
+		<li><a class="url" href="{{url}}">{{username}}: {{status}} <span id="where">({{url}})</span></a></li>
+		{{else}}
+		<li><a href="/post/{{slug}}">{{username}}: {{status}}</a></li>
+		{{/if}}
 		<a class="comments" id="{{slug}}" href="/post/{{slug}}">View Comments</a>
-		<br>
-		<br>
-	{{/each}}
-	</ol>
-</div>
+		<p id="timestamp">{{createAt}}</p>
+	</div>
+{{/each}}
 {{else}}
 <div>Sorry, you don't have any posts yet!</div>
 {{/if}}

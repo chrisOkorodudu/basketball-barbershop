@@ -4,6 +4,11 @@ body {
 
 }
 
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, a, form, body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  color: black;
+}
+
 #navigation {
 	background-color: darkgreen;
 }
@@ -29,7 +34,7 @@ li .navlink {
 	float: left;
 }
 
-li a {
+nav li a {
 	display: block;
 	color: white;
 	text-align: center;
@@ -37,7 +42,7 @@ li a {
 	text-decoration: none;
 }
 
-li a:hover {
+nav li a:hover {
 	background-color: #111;
 }
 
@@ -45,7 +50,6 @@ h1 {
 	display:block;
 	width: 100%;
 	clear: right;
-	font-family: 'Arimo', sans-serif;
 	font-size: 3em;
 	font-weight: bold;
 	text-align: center;
@@ -54,12 +58,11 @@ h1 {
 }
 
 li {
-	font-family: 'Lato', sans-serif;
 	padding: 10px;
 }
 
 ol {
-	list-style-type: square;
+	list-style-type: none;
 }
 
 input {
@@ -97,6 +100,27 @@ textarea {
 	padding: 15px;
 }
 
+.post {
+	padding-bottom:50px
+}
+
+.comments {
+	font-size: 0.7em;
+}
+
+#where {
+		font-size: 0.8em;
+		color: lightgray;
+}
+
+#timestamp {
+	font-size: 0.3em;
+}
+
+#postButton {
+	margin-top: 20px;
+}
+
 
 #currentuser {
 	color: darkblue;
@@ -116,7 +140,6 @@ textarea {
 }
 
 #post {
-	font-family: 'Lato', sans-serif;
 	color: rgb(50, 50, 50);
 }
 

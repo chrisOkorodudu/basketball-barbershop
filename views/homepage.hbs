@@ -3,6 +3,13 @@
 	<div id="login_err" class="error">{{ error }}</div>
 {{/if}}
 
+<div id="filterDiv">
+	<form action="" method="post">
+		search by username: <input class="filter" type="search" name="username" placeholder="enter username here">
+		<input id="submitsearch" type="submit" value="search">
+	</form>
+</div>
+
 {{#if user}}
 	<button id="postButton">Post Button</button>
 {{else}}
@@ -34,16 +41,19 @@
 
 </div>
 
-
 <div id="postDiv">
 	<ol id="posts">
 	{{#if posts}}
 	{{#each posts}}
-		<li>{{username}}:	{{status}}<br>{{description}}</li>
-		<!-- <button class={{username}} id={{_id}}>Comment</button> -->
-		<a class="comments" id="{{slug}}" href="/post/{{slug}}">View Comments</a>
-		<br>
-		<br>
+		<div class="post">
+			{{#if url}}
+			<li><a class="url" href="{{url}}">{{username}}: {{status}} <span id="where">({{url}})</span></a></li>
+			{{else}}
+			<li><a href="/post/{{slug}}">{{username}}: {{status}}</a></li>
+			{{/if}}
+			<a class="comments" id="{{slug}}" href="/post/{{slug}}">View Comments</a>
+			<p id="timestamp">{{createAt}}</p>
+		</div>
 	{{/each}}
 	{{/if}}
 	</ol>

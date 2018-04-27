@@ -19,25 +19,23 @@ driver.get('http://localhost:3000');
 // });
 
 
-//tests login form
+//Test 1: Login form
 testLogin();
 
 
-//test for route '/user/:username'
+//Test 2: test for route '/user/:username' (My Posts)
 viewMyPosts();
 
+//Test 3: tests View Comments link
 viewPost();
 
 
 //now logout, test register form
 driver.findElement(wd.By.id('logout')).click();
 
+
+//Test 4: tests register form *will only work once unless test username is changed in register function
 register();
-
-
-
-
-
 
 
 //test login form

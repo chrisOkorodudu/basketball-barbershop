@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('./db');
 const auth = require('./auth.js');
+const dateFormat = require('dateformat');
 const User = mongoose.model('User');
 const Post = mongoose.model('Post');
 const Comment = mongoose.model('Comment');
@@ -78,23 +79,35 @@ app.use((req, res, next) => {
 
 //all posts shown on homepage
 app.get('/', (req, res) => {
-	console.log('happening');
-	Post.find((err, posts) => {
+	const queryObj = {};
+	if (req.query) {
+		Object.keys(req.query).forEach(key => {
+			if (req.query[key]) {
+				queryObj[key] = req.query[key];
+			}
+		});
+	}
+	Post.find(queryObj, (err, posts) => {
 		if (!err && posts) {
-			res.render('homepage', {error: req.flash('error'), posts: posts});
+			if (Object.getOwnPropertyNames(req.query).length !== 0) {
+				return res.json(posts);
+			}
+			res.render('homepage', {error: req.flash('error'), posts: posts.reverse()});
 		}
 	});
 });
 
 app.post('/', (req, res) => {
+	const now = new Date();
+	console.log(req.body.url);
 	const post = new Post({
 		username: req.user.username,
 		status: req.body.status,
-		url: req.body.link,
-		description: req.body.description
+		url: req.body.url,
+		description: req.body.description,
+		createAt: dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT")
 	}).save((err, post) => {
 		if (!err && post) {
-			// console.log(user);
 			res.redirect('/');
 		} else {
 			console.log(err);
@@ -113,7 +126,6 @@ app.get('/logout', (req, res) => {
 	res.redirect('/');
 });
 
-
 app.get('/register', (req, res) => {
 	res.render('register');
 });
@@ -123,7 +135,6 @@ app.post('/register', (req, res) => {
 														failureRedirect: '/register',
 														failureFlash: true}
 	);
-
 	auth.register(req.body.email, req.body.username, req.body.password, authenticate.bind(null, req, res), (err) => {
 		res.render('register', {message: err.message});
 	});
@@ -133,7 +144,7 @@ app.get('/user/:username', (req, res) => {
 	console.log(req.user.username);
 	Post.find({username: req.user.username}, (err, posts) => {
 		if (!err && posts) {
-			res.render('myposts', {posts: posts});
+			res.render('myposts', {posts: posts.reverse()});
 		}
 	});
 });
@@ -148,7 +159,7 @@ app.get('/post/:slug', (req, res) => {
 		if (post) {
 			Comment.find({postID: post._id}, (err, comments) => {
 				if (err) {
-					return console.log('error finding comments')
+					return console.log('error finding comments');
 				}
 
 				res.render('comments', {post: post, comments: comments});
@@ -183,9 +194,6 @@ app.post('/post/:slug', (req, res) => {
 	});
 });
 
-// app.get('/user/:username', (req, res) => {
-
-// });
 
 
 app.listen(process.env.PORT || 3000);
