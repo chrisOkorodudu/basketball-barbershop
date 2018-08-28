@@ -3,8 +3,6 @@
 
 ## Overview
 
-(___TODO__: a brief one or two paragraph, high-level description of your project_)
-
 The basketball barbershop is a friendly forum in which basketball fans can talk hoops in any way they see fit. Focusing on the latest NBA news and trends, it is a place for people to not only keep up to date on whats happening in the league, but to share their opinions and predictions about what is happening and will happen in the future. Is Lebron the greatest of all time? Will Golden State win another championship? Should James Harden win MVP? The basketball barbershop is the perfect place to engage in open debate on these and countless other hot basetball topics. 
 
 The Basketball Barbershop is a web app that will allow users to create an account and post the latest news or opinions, as well as comment on other peoples posts and engage in debate. Users can register and login. Once they're logged in, they may browse through the main feed of posts, and comment on whichever posts they prefer. Additionally, logged in users will have the option of creating a new discussion. 
