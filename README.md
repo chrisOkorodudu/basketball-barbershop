@@ -1,5 +1,3 @@
-The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
-
 
 # The Basksetball Barbershop
 
@@ -14,14 +12,11 @@ The Basketball Barbershop is a web app that will allow users to create an accoun
 
 ## Data Model
 
-(___TODO__: a description of your application's data and their relationships to each other_) 
-
 The application will store users, posts, and comments.
 
 * users can have as many posts as they like
 * each post can have many comments
 
-(___TODO__: sample documents_)
 
 An Example User:
 
@@ -111,10 +106,3 @@ An example Comment Object:
 
 
 ## [Link to Initial Main Project File](app.js) 
-
-
-## Annotations / References Used
-
-(___TODO__: list any tutorials/references/etc. that you've based your code off of_)
-
-1. [paresleyjs] authentication docs](http://parsleyjs.org/doc/index.html) - no source code yet based on this 
